@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>v7+HG-PLUS4 · Speedi Pasta Konfigurator – Vol. 7 + Saucen</title>
+<style>
+  :root{
+    --green:#22c55e;
+    --green-strong:#16a34a;
+    --gray:#f3f4f6;
+    --border:#d1d5db;
+  }
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:#fff;color:#111827}
+  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);padding:.75rem 1rem}
+  header h1{font-size:1.1rem;margin:0}
+  main{padding:1rem;max-width:920px;margin:auto}
+  h2{font-size:1.05rem;margin:1.25rem 0 .5rem}
+  .row{display:flex;flex-wrap:wrap;gap:.5rem}
+  .btn{
+    border:2px solid var(--border);
+    background:var(--gray);
+    border-radius:.75rem;
+    padding:.65rem .9rem;
+    min-width:120px;
+    text-align:center;
+    font-weight:600;
+    position:relative;
+    cursor:pointer;
+    user-select:none;
+    transition:.15s;
+  }
+  .btn small{display:block;font-weight:500;color:#374151}
+  .btn.active{
+    background:#eafff2;
+    border-color:var(--green-strong);
+    box-shadow:0 0 0 2px rgba(34,197,94,.15) inset;
+  }
+  .btn.active::after{
+    content:"✓";
+    position:absolute;right:.5rem;top:.35rem;
+    color:#fff;background:var(--green-strong);
+    width:1.35rem;height:1.35rem;line-height:1.35rem;
+    border-radius:999px;text-align:center;font-weight:800;
+    font-size:.9rem;
+  }
+  .card{
+    border:1px solid var(--border);
+    border-radius:1rem;
+    padding:1rem;
+    margin:.75rem 0;
+    background:#fff;
+  }
+  .grid{display:grid;gap:.5rem;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));}
+  .box{border:2px dashed var(--border);border-radius:.75rem;padding:.75rem;background:#fafafa}
+  input[type="number"], select{
+    width:100%;padding:.55rem .6rem;border:1px solid var(--border);
+    border-radius:.6rem;background:#fff;font-size:1rem;
+  }
+  .out{
+    background:#f8fafc;border:1px solid var(--border);border-radius:.9rem;padding:.9rem;
+    font-weight:700;line-height:1.25
+  }
+  .muted{color:#4b5563;font-weight:500}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+  .hint{font-size:.9rem;color:#374151}
+  .ok{color:var(--green-strong)}
+  footer{padding:2rem 1rem;color:#6b7280;font-size:.9rem}
+</style>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" sizes="192x192" href="icon-192.png">
+  <link rel="icon" sizes="512x512" href="icon-512.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+<header><h1>Speedi Pasta Konfigurator – Vol. 7 + Saucen</h1></header>
+<main>
+
+<div class="card two">
+  <div>
+    <h2>Pasta</h2>
+    <label class="muted">Barilla-Sorte (Classic „blaue Box“)</label>
+    <select id="pastaType">
+      <option value="70.9" selected>Bucatini (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Cannelloni (Röhren) (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Capellini (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Casarecce (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Castellane (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Conchiglie (Muscheln) (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Ditali / Ditalini (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Farfalle (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Fettuccine (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Fusilli (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Fusilli Bucati Corti (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Gemelli (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Lasagne (Blätter, trocken) (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Linguine (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Maccheroni (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Mafaldine (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Mezze Penne Tricolore (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Mini Penne (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Orecchiette (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Papiri (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Penne (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Penne Rigate (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Rigatoni (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Risoni / Orzo / Kritharáki (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Spaghetti (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Spaghettini (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Spirali (Deutsche Bezeichnung) (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Tagliatelle (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Tortiglioni (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Tortiglioni Rigati (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Trecce (Trecine) (≈70.9 g KH/100 g)</option>
+      <option value="70.9">Trofie (≈70.9 g KH/100 g)</option>
+    </select>
+    <div style="height:.5rem"></div>
+    <label class="muted">Pasta-Menge (roh, g)</label>
+    <input id="pastaGrams" type="number" inputmode="numeric" value="200" min="40" step="5">
+  </div>
+  <div>
+    <h2>Ziel-Flüssigkeit</h2>
+    <label class="muted">Ziel-Gesamt (ml) – i. d. R. 900</label>
+    <input id="targetMl" type="number" value="900" step="50" min="400">
+    <div class="hint">Wasser wird automatisch so berechnet, dass alle gewählten Flüssigkeiten zusammen das Ziel ergeben. Päckchen-Soßen bringen je 250 ml eigenes Wasser mit.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Topf-Zutaten (Mehrfachauswahl möglich)</h2>
+  <div class="grid" id="buttons">
+    <!-- Sauce -->
+    <div class="btn" data-key="sauce350" data-ml="350" data-khper="ml" data-khval="4.0">Soße 350<small>+350 ml · ~4 g KH/100 ml</small></div>
+    <div class="btn" data-key="sauce375" data-ml="375" data-khper="ml" data-khval="4.0">Soße 375<small>+375 ml · ~4 g KH/100 ml</small></div>
+    <div class="btn" data-key="sauce400" data-ml="400" data-khper="ml" data-khval="4.0">Soße 400<small>+400 ml · ~4 g KH/100 ml</small></div>
+    <div class="btn" data-key="sauce420" data-ml="420" data-khper="ml" data-khval="4.0">Soße 420<small>+420 ml · ~4 g KH/100 ml</small></div>
+    <div class="btn" data-key="sauce500" data-ml="500" data-khper="ml" data-khval="4.0">Soße 500<small>+500 ml · ~4 g KH/100 ml</small></div>
+
+    <!-- Dairy / creamy -->
+    <div class="btn" data-key="milk100" data-ml="100" data-khper="ml" data-khval="4.8">Milch 100<small>1,5% · ~4.8 g/100 ml</small></div>
+    <div class="btn" data-key="milk150" data-ml="150" data-khper="ml" data-khval="4.8">Milch 150<small>1,5% · ~4.8 g/100 ml</small></div>
+
+    <div class="btn" data-key="cremefine50" data-ml="50" data-khper="ml" data-khval="4.5">Cremèfine 50<small>Rama 7% · 4.5 g/100 ml</small></div>
+    <div class="btn" data-key="cremefine100" data-ml="100" data-khper="ml" data-khval="4.5">Cremèfine 100<small>Rama 7% · 4.5 g/100 ml</small></div>
+
+    <div class="btn" data-key="cremefraiche50" data-g="50" data-khper="g" data-khval="2.8">Crème fraîche 50<small>Dr. Oetker · 2.8 g/100 g</small></div>
+    <div class="btn" data-key="cremefraiche100" data-g="100" data-khper="g" data-khval="2.8">Crème fraîche 100</div>
+    <div class="btn" data-key="cremefraiche150" data-g="150" data-khper="g" data-khval="2.8">Crème fraîche 150</div>
+    <div class="btn" data-key="cremefraiche200" data-g="200" data-khper="g" data-khval="2.8">Crème fraîche 200</div>
+
+    <div class="btn" data-key="schmand50" data-g="50" data-khper="g" data-khval="3.4">Schmand 50<small>~3.4 g/100 g</small></div>
+    <div class="btn" data-key="schmand100" data-g="100" data-khper="g" data-khval="3.4">Schmand 100</div>
+    <div class="btn" data-key="schmand150" data-g="150" data-khper="g" data-khval="3.4">Schmand 150</div>
+    <div class="btn" data-key="schmand200" data-g="200" data-khper="g" data-khval="3.4">Schmand 200</div>
+
+    <div class="btn" data-key="frischkaese50" data-g="50" data-khper="g" data-khval="2.8">Frischkäse 50<small>DRS · ~2.8 g/100 g</small></div>
+    <div class="btn" data-key="frischkaese100" data-g="100" data-khper="g" data-khval="2.8">Frischkäse 100</div>
+    <div class="btn" data-key="frischkaese150" data-g="150" data-khper="g" data-khval="2.8">Frischkäse 150</div>
+
+    <!-- Bottled sauces (non-water) -->
+    <div class="btn" data-key="hela50" data-ml="50" data-khper="ml" data-khval="30.6">Hela Curry 50<small>Delikat · 30.6 g/100 ml</small></div>
+    <div class="btn" data-key="hela100" data-ml="100" data-khper="ml" data-khval="30.6">Hela Curry 100</div>
+    <div class="btn" data-key="heinz50" data-ml="50" data-khper="ml" data-khval="23.2">Heinz Ketchup 50<small>23.2 g/100 ml</small></div>
+    <div class="btn" data-key="heinz100" data-ml="100" data-khper="ml" data-khval="23.2">Heinz Ketchup 100</div>
+    <div class="btn" data-key="knorr_schaschlik50" data-ml="50" data-khper="ml" data-khval="20">Knorr Schaschlik 50<small>20 g/100 ml</small></div>
+    <div class="btn" data-key="knorr_schaschlik100" data-ml="100" data-khper="ml" data-khval="20">Knorr Schaschlik 100</div>
+  </div>
+
+  <h2>Fertigsaucen (Päckchen → je 250 ml Wasser inkl.)</h2>
+  <div class="grid">
+    <div class="box">
+      <label>Knorr Bratensauce (Packs)</label>
+      <select data-pack="knorr_brat" data-khper100ml="7.1">
+        <option value="0">0</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option>
+      </select>
+      <small class="muted">≈7.1 g KH pro 100 ml zubereitet</small>
+    </div>
+    <div class="box">
+      <label>Knorr Rahmsauce (Packs)</label>
+      <select data-pack="knorr_rahm" data-khper100ml="7.5">
+        <option value="0">0</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option>
+      </select>
+      <small class="muted">≈7.5 g KH / 100 ml</small>
+    </div>
+    <div class="box">
+      <label>Maggi Sauce zu Braten (Packs)</label>
+      <select data-pack="maggi_braten" data-khper100ml="5.1">
+        <option value="0">0</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option>
+      </select>
+      <small class="muted">≈5.1 g KH / 100 ml</small>
+    </div>
+    <div class="box">
+      <label>Maggi Helle Sauce (Packs)</label>
+      <select data-pack="maggi_helle" data-khper100ml="6.4">
+        <option value="0">0</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option>
+      </select>
+      <small class="muted">≈6.4 g KH / 100 ml</small>
+    </div>
+  
+  <div class="grid" style="margin-top:.75rem">
+    <div class="box">
+      <label>Freie Flüssigkeit (ml)</label>
+      <div class="two">
+        <input id="freeLiquidMl" type="number" min="0" step="10" value="0">
+        <label style="display:flex;align-items:center;gap:.5rem">
+          <input id="freeLiquidActive" type="checkbox">
+          <span>aktiv (als Nicht‑Wasser, 0 g KH)</span>
+        </label>
+      </div>
+      <small class="muted">Beispiel: Brühe, Extra-Milch etc. (nur Volumen, keine KH)</small>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="card">
+  <h2>Zwiebel · Knoblauch · Öl (Topf)</h2>
+  <div class="grid">
+    <div class="box">
+      <label>Weiße Zwiebel</label>
+      <select id="onionWhite" data-gramper="80">
+        <option value="0">–</option>
+        <option value="0.5">½ Zwiebel</option>
+        <option value="1">1 Zwiebel</option>
+        <option value="2">2 Zwiebeln</option>
+      </select>
+      <small class="muted">Referenz: ~80 g pro Zwiebel, ≈5.7 g KH/100 g</small>
+    </div>
+    <div class="box">
+      <label>Rote Zwiebel</label>
+      <select id="onionRed" data-gramper="80">
+        <option value="0">–</option>
+        <option value="0.5">½ Zwiebel</option>
+        <option value="1">1 Zwiebel</option>
+        <option value="2">2 Zwiebeln</option>
+      </select>
+      <small class="muted">Referenz: ~80 g pro Zwiebel, ≈5.7 g KH/100 g</small>
+    </div>
+    <div class="box">
+      <label>Knoblauchzehen</label>
+      <select id="garlicCloves" data-gramper="3">
+        <option value="0">0</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+        <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+      </select>
+      <small class="muted">Referenz: ~3 g pro Zehe, ≈33 g KH/100 g</small>
+    </div>
+    <div class="box">
+      <label>Öl</label>
+      <div class="two">
+        <select id="oilType">
+          <option value="raps">Rapsöl</option>
+          <option value="sun">Sonnenblumenöl</option>
+          <option value="olive">Olivenöl</option>
+        </select>
+        <select id="oilTsp">
+          <option value="0">0 TL</option>
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+        </select>
+      </div>
+      <small class="muted">1 TL ≈ 5 ml (ca. 4.5 g), 0 g KH</small>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Hack &amp; Gemüse (Topf)</h2>
+  <div class="grid">
+    <div class="box">
+      <label>Hack im Topf (roh, g)</label>
+      <input id="hackGrams" type="number" value="0" min="0" step="10">
+      <div style="height:.35rem"></div>
+      <label class="muted">Garverlust (nur fürs Endgewicht, g)</label>
+      <input id="hackLoss" type="number" value="100" min="0" step="10" style="width:7rem">
+      <small class="muted">Hack zählt mit 0 g KH; Rohgewicht ↑, Endgewicht ↓ um den Verlust.</small>
+    </div>
+
+    <div class="box">
+      <label>Gemüse #1</label>
+      <div class="two">
+        <select id="veg1">
+          <option value="none" data-kh100="0">–</option>
+          <option data-kh100="7.0">Karotte</option>
+          <option data-kh100="6.0">Paprika</option>
+          <option data-kh100="2.2">Zucchini</option>
+          <option data-kh100="3.0">Tomaten (frisch)</option>
+          <option data-kh100="3.0">Oliven</option>
+          <option data-kh100="3.0">Sellerie</option>
+          <option data-kh100="14.0">Lauch (Porree)</option>
+          <option data-kh100="7.0">Lauchzwiebeln</option>
+          <option data-kh100="2.6">Kohlrabi</option>
+        </select>
+        <input id="veg1g" type="number" value="0" min="0" step="10" placeholder="g">
+      </div>
+    </div>
+
+    <div class="box">
+      <label>Gemüse #2</label>
+      <div class="two">
+        <select id="veg2">
+          <option value="none" data-kh100="0">–</option>
+          <option data-kh100="7.0">Karotte</option>
+          <option data-kh100="6.0">Paprika</option>
+          <option data-kh100="2.2">Zucchini</option>
+          <option data-kh100="3.0">Tomaten (frisch)</option>
+          <option data-kh100="3.0">Oliven</option>
+          <option data-kh100="3.0">Sellerie</option>
+          <option data-kh100="14.0">Lauch (Porree)</option>
+          <option data-kh100="7.0">Lauchzwiebeln</option>
+          <option data-kh100="2.6">Kohlrabi</option>
+        </select>
+        <input id="veg2g" type="number" value="0" min="0" step="10" placeholder="g">
+      </div>
+    </div>
+
+    <div class="box">
+      <label>Freies Gemüse</label>
+      <div class="two">
+        <input id="vegFreeKh100" type="number" placeholder="KH/100 g" step="0.1" min="0">
+        <input id="vegFreeG" type="number" placeholder="g" step="10" min="0">
+      </div>
+      <small class="muted">Wird zu KH Topf &amp; Rohgewicht addiert.</small>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <h2>Protein (optional)</h2>
+  <div class="grid">
+    <div class="box">
+      <label>Proteinart</label>
+      <select id="proteinType">
+        <option value="none">– keine –</option>
+        <option value="schnitzel_schwein_pan">Schnitzel Schwein (paniert)</option>
+        <option value="schnitzel_pute_pan">Schnitzel Pute (paniert)</option>
+        <option value="schnitzel_huhn_pan">Schnitzel Hähnchen (paniert)</option>
+        <option value="schnitzel_natur">Schnitzel natur (ohne Panade)</option>
+        <option value="hack_frikadelle">Hack (Frikadelle/Hackbällchen)</option>
+        <option value="tk_custom">TK-Produkt (KH/100 g von Packung)</option>
+      </select>
+      <div style="height:.5rem"></div>
+      <label class="muted">Verzehrmenge (g bzw. fertig gegart)</label>
+      <input id="proteinGrams" type="number" value="0" min="0" step="10">
+      <div class="hint">Für TK-Produkt bitte unten den KH-Wert pro 100 g eintragen.</div>
+      <div style="height:.35rem"></div>
+      <label class="muted">TK: KH auf Packung (g/100 g)</label>
+      <input id="tkKh100" type="number" value="0" min="0" step="0.1">
+    </div>
+  </div>
+  <div class="hint">Panade-Standard (pro 100 g Fleisch): Mehl 5 g, Paniermehl 10 g, Ei 10 g → ≈10.6 g KH/100 g Portion. Stärke kann je nach Panadestärke abweichen.</div>
+</div>
+
+<div class="card two">
+  <div>
+    <h2>Ergebnis (Topf)</h2>
+    <div class="out" id="outTopf">
+      Wasser einfüllen: – ml<br>
+      Nicht-Wasser gesamt: – ml<br>
+      KH Topf (roh): – g
+    </div>
+  </div>
+  <div>
+    <h2>Ergebnis (Protein)</h2>
+    <div class="out" id="outProtein">
+      KH Protein (oben): – g
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Gesamt</h2>
+  <div class="out" id="outTotal">
+    Rohgewicht (inkl. Wasser): – g<br>
+    Abzug Verdampfung (Standard 50 g): <input id="evap" type="number" value="50" min="0" step="10" style="width:6rem"> g<br>
+    Endgewicht (geschätzt): – g<br>
+    Gesamte KH (Topf + Protein, roh): – g
+  </div>
+</div>
+
+<footer>
+  <div class="hint">
+    Hinweise: Barilla „Classic“-Pasta (blaue Box) wird mit ~70.9 g KH/100 g angenommen. Markenwerte: Rama Cremefine 7% ≈4.5 g KH/100 ml; Hela Curry Ketchup ≈30.6 g/100 ml; Heinz Ketchup ≈23.2 g/100 ml; Knorr Schaschlik ≈20 g/100 ml. Päckchen‑Soßen: Knorr Braten ≈7.1 g/100 ml, Knorr Rahm ≈7.5 g/100 ml, Maggi Sauce zu Braten ≈5.1 g/100 ml, Maggi Helle ≈6.4 g/100 ml. Crème fraîche (Dr. Oetker) ≈2.8 g/100 g; Schmand ≈3.4 g/100 g; Frischkäse DRS ≈2.8 g/100 g.
+  </div>
+</footer>
+
+</main>
+
+<script>
+(function(){
+  const state = {
+    liquidMl: 0,        // liquids that count towards the 900-ml Ziel (incl. packet water)
+    notWaterMl: 0,      // non-water additions (for display only)
+    topfKH: 0,          // carbs from pot
+    proteinKH: 0,       // from protein only
+    pastaKH100: 70.9,
+    pastaGrams: 200,
+    targetMl: 900,
+    packets: {},
+    selected: {}        // key -> {ml,g,khper,khval}
+  };
+
+  const el = s=>document.querySelector(s);
+
+  function parseFloatSafe(v){ const n=parseFloat(v); return isFinite(n)?n:0; }
+
+  function recalc(){
+    // pasta KH
+    const pastaKH = state.pastaGrams * state.pastaKH100 / 100;
+
+    // go over selected topf items
+    let liquidMl = 0;
+    let topfKH = pastaKH;
+    let notWaterMl = 0;
+
+    for(const key in state.selected){
+      const it = state.selected[key];
+      const ml = it.ml||0;
+      const g  = it.g||0;
+      if(ml>0){
+        notWaterMl += ml;
+        // KH contribution
+        topfKH += (ml * (it.khval||0))/100.0;
+      }
+      if(g>0){
+        // solids (e.g., crème fraîche)
+        topfKH += (g * (it.khval||0))/100.0;
+      }
+    }
+
+    // packet sauces: each brings 250 ml "water" and KH per 100 ml
+    let packetWater = 0;
+    let packetKH = 0;
+    document.querySelectorAll('select[data-pack]').forEach(sel=>{
+      const packs = parseInt(sel.value||"0",10);
+      const khPer100 = parseFloatSafe(sel.dataset.khper100ml);
+      if(packs>0){
+        const addMl = packs*250;
+        packetWater += addMl;
+        packetKH += addMl * khPer100 / 100.0;
+      }
+    });
+
+    // In display, notWaterMl excludes packet water, but includes e.g. ketchup/milch/etc selections
+    // For water calculation, liquids toward target = notWaterMl + packetWater
+    liquidMl = notWaterMl + packetWater;
+
+    // add packet KH to topf
+    topfKH += packetKH;
+    // Freie Flüssigkeit (optional, 0 g KH) – zählt als Nicht-Wasser
+    (function(){
+      const on = document.getElementById('freeLiquidActive');
+      const mlEl = document.getElementById('freeLiquidMl');
+      if(on && mlEl && on.checked){
+        const add = parseFloat((mlEl.value||'0'));
+        if(!isNaN(add) && add>0){ notWaterMl += add; }
+      }
+    })();
+
+    // Zwiebel/Knoblauch/Öl Einberechnung
+    let extraSolids = 0; // g, wirkt nur aufs Rohgewicht & KH (nicht auf "Nicht-Wasser ml")
+    (function(){
+      const w = document.getElementById('onionWhite');
+      if(w){ const units = parseFloat(w.value||'0'); const g = units * parseFloat(w.dataset.gramper||'80'); extraSolids += g; topfKH += g * 5.7/100; }
+      const r = document.getElementById('onionRed');
+      if(r){ const units = parseFloat(r.value||'0'); const g = units * parseFloat(r.dataset.gramper||'80'); extraSolids += g; topfKH += g * 5.7/100; }
+      const gc = document.getElementById('garlicCloves');
+      if(gc){ const c = parseInt(gc.value||'0',10); const g = c * parseFloat(gc.dataset.gramper||'3'); extraSolids += g; topfKH += g * 33/100; }
+      const oilT = document.getElementById('oilTsp');
+      if(oilT){ const tsp = parseInt(oilT.value||'0',10);
+        const grams = Math.max(0, Math.round(tsp * 4.5));
+        extraSolids += grams; /* Öl zählt als Gewicht, nicht als Flüssigkeit */ }
+      // solids from selected buttons (e.g., crème fraîche)
+      for(const k in state.selected){ const it=state.selected[k]; if((it.g||0)>0){ extraSolids += it.g; } }
+      // store on state for potential debugging
+      
+      // --- Hack & Gemüse (Topf) ---
+      // Hack zählt als Feststoff (0 g KH), optionaler Garverlust wird separat vom Endgewicht abgezogen.
+      (function(){
+        const hgEl = document.getElementById('hackGrams');
+        const hlEl = document.getElementById('hackLoss');
+        let hg = 0, hl = 0;
+        if(hgEl){ hg = parseFloatSafe(hgEl.value||'0'); if(!isNaN(hg) && hg>0){ extraSolids += hg; } }
+        if(hlEl){ hl = parseFloatSafe(hlEl.value||'0'); if(isNaN(hl) || hl<0) hl = 0; }
+        state.hackLoss = (hg > 0 ? Math.round(hl||0) : 0);
+})();
+
+      // Gemüse #1/#2 aus Dropdown: KH addieren, Gewicht als Feststoff addieren
+      (function(){
+        function addVeg(selId, gId){
+          const sel = document.getElementById(selId);
+          const gEl = document.getElementById(gId);
+          if(!sel || !gEl) return;
+          const g = parseFloatSafe(gEl.value||'0');
+          if(isNaN(g) || g<=0) return;
+          const opt = sel.options[sel.selectedIndex];
+          const kh100 = parseFloatSafe(opt && opt.dataset ? (opt.dataset.kh100||'0') : '0');
+          if(!isNaN(kh100) && kh100>0){
+            topfKH += g * kh100 / 100.0;
+          }
+          extraSolids += g;
+        }
+        addVeg('veg1','veg1g');
+        addVeg('veg2','veg2g');
+        // Freies Gemüse
+        const fg = document.getElementById('vegFreeG');
+        const fkh = document.getElementById('vegFreeKh100');
+        if(fg && fkh){
+          const g = parseFloatSafe(fg.value||'0');
+          const kh100 = parseFloatSafe(fkh.value||'0');
+          if(!isNaN(g) && g>0){
+            extraSolids += g;
+            if(!isNaN(kh100) && kh100>0){ topfKH += g * kh100 / 100.0; }
+          }
+        }
+      })();
+state.extraSolids = extraSolids;
+    })();
+    // ensure liquids toward target include free liquid
+    liquidMl = notWaterMl + packetWater;
+
+    // Compute water to add to reach target
+    const target = state.targetMl;
+    const waterToAdd = Math.max(0, Math.round(target - liquidMl));
+
+    // Protein calculation
+    const pType = el('#proteinType').value;
+    const pG = parseFloatSafe(el('#proteinGrams').value);
+    let proteinKH = 0;
+    if(pType !== 'none' && pG > 0){
+      if(pType.startsWith('schnitzel_') && pType.endsWith('_pan')){
+        // per 100 g Fleisch: flour 5g (71 g KH/100 g), breadcrumb 10g (69 g KH/100 g), egg 10g (~0.7 g KH/100 g)
+        const flourKH = 0.05 * pG * 71/100;
+        const crumbKH = 0.10 * pG * 69/100;
+        const eggKH   = 0.10 * pG * 0.7/100;
+        proteinKH = flourKH + crumbKH + eggKH;
+      }else if(pType==='schnitzel_natur'){
+        proteinKH = 0;
+      }else if(pType==='hack_frikadelle'){
+        // per 100 g Hack: breadcrumbs 10 g, Ei 6 g, Senf 2 g (6 g KH/100 ml ~ ignore ml), Zwiebel 10 g (~5.7 g KH/100 g)
+        const bc = 0.10 * pG * 69/100;
+        const egg = 0.06 * pG * 0.7/100;
+        const onion = 0.10 * pG * 5.7/100;
+        const mustard = 0.02 * pG * 6/100;
+        proteinKH = bc + egg + onion + mustard;
+      }else if(pType==='tk_custom'){
+        const kh100 = parseFloatSafe(el('#tkKh100').value);
+        proteinKH = pG * kh100 / 100.0;
+      }
+    }
+
+    // Outputs
+    el('#outTopf').innerHTML = `Wasser einfüllen: <span class="ok">${waterToAdd} ml</span><br>
+      Nicht-Wasser gesamt: ${Math.round(notWaterMl)} ml<br>
+      KH Topf (roh): ${topfKH.toFixed(1)} g`;
+
+    el('#outProtein').innerHTML = `KH Protein (oben): ${proteinKH.toFixed(1)} g`;
+
+    const evap = parseFloatSafe(el('#evap').value);
+    const rohgewicht = Math.round(state.pastaGrams + notWaterMl + packetWater + (state.extraSolids||0) + waterToAdd); // pasta as g + all Flüssigkeiten (ml ~ g)
+    const endgewicht = Math.max(0, rohgewicht - Math.round(evap) - Math.max(0, Math.round(state.hackLoss||0)));
+    const totalKH = (topfKH + proteinKH).toFixed(1);
+
+    el('#outTotal').innerHTML = `Rohgewicht (inkl. Wasser): ${rohgewicht} g<br>
+      Abzug Verdampfung (Standard 50 g): <input id="evap" type="number" value="${evap}" min="0" step="10" style="width:6rem"> g<br>
+      Endgewicht (geschätzt): ${endgewicht} g<br>Abzug Hackverlust: ${Math.max(0, Math.round(state.hackLoss||0))} g<br>
+      Gesamte KH (Topf + Protein, roh): ${totalKH} g`;
+
+    // Rebind evap input after innerHTML replace
+    el('#evap').addEventListener('input', recalc);
+  ;['#hackGrams','#hackLoss','#veg1','#veg1g','#veg2','#veg2g','#vegFreeKh100','#vegFreeG']
+    .forEach(s=>{ const n=el(s); if(n){ n.addEventListener('input', recalc); n.addEventListener('change', recalc); }});
+  ['#hackGrams','#hackLoss','#veg1','#veg1g','#veg2','#veg2g','#vegFreeName','#vegFreeKh100','#vegFreeG']
+    .forEach(sel=>{ const n = el(sel); if(n){ n.addEventListener('input', recalc); n.addEventListener('change', recalc); }});
+
+  
+  
+  const flMl = document.getElementById('freeLiquidMl');
+  const flOn = document.getElementById('freeLiquidActive');
+  if(flMl) flMl.addEventListener('input', recalc);
+  if(flOn) flOn.addEventListener('change', recalc);
+['#onionWhite','#onionRed','#garlicCloves','#oilType','#oilTsp'].forEach(sel=>{
+    const n = document.querySelector(sel);
+    if(n){ n.addEventListener('change', recalc); }
+  });
+}
+
+  // Button handling
+  document.querySelectorAll('#buttons .btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const key = btn.dataset.key;
+      if(btn.classList.contains('active')){
+        btn.classList.remove('active');
+        delete state.selected[key];
+      }else{
+        btn.classList.add('active');
+        const ml = parseFloatSafe(btn.dataset.ml||"0");
+        const g  = parseFloatSafe(btn.dataset.g||"0");
+        const khper = btn.dataset.khper; // "ml" or "g"
+        const khval = parseFloatSafe(btn.dataset.khval||"0");
+        state.selected[key] = {ml:ml,g:g,khper:khper,khval:khval};
+      }
+      recalc();
+    });
+  });
+
+  // Packet selectors
+  document.querySelectorAll('select[data-pack]').forEach(sel=>{
+    sel.addEventListener('change', recalc);
+  });
+
+  // Inputs
+  el('#pastaType').addEventListener('change', e=>{ state.pastaKH100=parseFloatSafe(e.target.value); recalc(); });
+  el('#pastaGrams').addEventListener('input', e=>{ state.pastaGrams=parseFloatSafe(e.target.value); recalc(); });
+  el('#targetMl').addEventListener('input', e=>{ state.targetMl=parseFloatSafe(e.target.value); recalc(); });
+  el('#proteinType').addEventListener('change', recalc);
+  el('#proteinGrams').addEventListener('input', recalc);
+  el('#tkKh100').addEventListener('input', recalc);
+  el('#evap').addEventListener('input', recalc);
+  ;['#hackGrams','#hackLoss','#veg1','#veg1g','#veg2','#veg2g','#vegFreeKh100','#vegFreeG']
+    .forEach(s=>{ const n=el(s); if(n){ n.addEventListener('input', recalc); n.addEventListener('change', recalc); }});
+  ['#hackGrams','#hackLoss','#veg1','#veg1g','#veg2','#veg2g','#vegFreeName','#vegFreeKh100','#vegFreeG']
+    .forEach(sel=>{ const n = el(sel); if(n){ n.addEventListener('input', recalc); n.addEventListener('change', recalc); }});
+
+
+  // Initial
+  recalc();
+})();
+</script>
+
+
+<!-- Auto-target addon (non-invasive) -->
+<script>
+(function(){
+  function $(id){return document.getElementById(id);}
+  function round50(x){ return Math.max(0, Math.round(x/50)*50); }
+  var autoOn = true;
+  var internal = false;
+
+  var target = $('targetMl');
+  var grams  = $('pastaGrams');
+
+  if(!target || !grams) return;
+
+  // Disable auto when user types in target
+  target.addEventListener('input', function(){ if(!internal) autoOn = false; });
+
+  function setTargetFromGrams(){
+    if(!autoOn) return;
+    var g = parseFloat(grams.value||'0'); if(!isFinite(g)) g = 0;
+    var t = round50(g * 4.5);
+    internal = true;
+    target.value = t;
+    // notify the app's own listener so state is updated + recalc runs
+    target.dispatchEvent(new Event('input', {bubbles:true}));
+    internal = false;
+  }
+
+  grams.addEventListener('input', setTargetFromGrams);
+
+  // Initial sync on load (once)
+  document.addEventListener('DOMContentLoaded', function(){
+    setTargetFromGrams();
+    // Also force a recalc if placeholders are still visible
+    var out = document.getElementById('outTopf');
+    if(out && out.textContent.indexOf('– ml') !== -1){
+      target.dispatchEvent(new Event('input', {bubbles:true}));
+    }
+  });
+})();
+</script>
+
+
+<!-- PWA: service worker registration -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./sw.js').catch(function(e){console.log('SW reg failed', e);});
+  });
+}
+</script>
+
+</body>
+</html>
